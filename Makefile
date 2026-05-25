@@ -2,15 +2,12 @@ CC = cc
 FLAGS = 
 LIBS = -lSDL2 -lm
 
-#run: str-demo
-#	./str-demo
+run: build/image
+	./build/image
 
-#str-demo: str-demo.c
-#	$(CC) $(FLAGS) str-demo.c -o str-demo $(LIBS)
+build/image: image.c
+	mkdir -p build
+	$(CC) $(FLAGS) image.c -o build/image $(LIBS)
 
-run: image
-	./image
-
-image: image.c
-	$(CC) $(FLAGS) image.c -o image $(LIBS)
-
+clean: build/
+	rm build -rf
